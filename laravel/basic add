@@ -1,0 +1,43 @@
+# commentController.php
+-----------------------
+use App\Post; //Post Model
+use App\Comment; //Post Model
+
+// add comment against Post
+public funciton store(Post $post)
+{ 
+	//1st way
+	Comment::create([
+		'body' => request('body'),
+		'post_id' => $post->id
+	]);
+
+	//2nd way
+	demodata: .. User::create(request(['name', 'email', 'password']));
+
+	//3rd way
+	$post->addComment(request('body'));
+
+	return back();
+}
+
+
+# post Model
+-----------
+public function addComment($body){
+	
+	Comment::create([
+		'body'    => $body,
+		'post_id' => $this->id,
+	]);
+
+	//another way
+	//if post has relation hasMany Comment
+
+	$this->comments()->create(compact('body'));
+
+	//return issue
+	$this->comments; //return all comments
+	$this->comments()->create(); 
+		// return id last insert comment
+}
