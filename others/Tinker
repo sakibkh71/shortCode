@@ -1,0 +1,10 @@
+online link : https://scotch.io/tutorials/tinker-with-the-data-in-your-laravel-apps-with-php-artisan-tinker
+
+--------------------------------
+
+1. first go to proj root using terminal
+2. command: php artisan tinker
+3. configure Fartories/ModelFactory file
+4. then paste below code to terminal ..
+	factory(App\User::class, 10)->create();
+5. press enter 10 data will be generated :D.

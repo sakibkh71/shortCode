@@ -1,0 +1,22 @@
+new Vue({
+        el: '#showData',
+        data: {
+            message: 'Hello Vue!',
+            salaryInfo:[]
+        },
+
+	//resource fetch data
+        // mounted: function() {
+
+        //     this.$http({url: '/salaryInfo/getAllInfo', method: 'GET'})
+        //     .then(function (response){
+
+        //         this.salaryInfo = response.data
+        //     }.bind(this))
+        // },
+
+        //axios fetch data
+        mounted(){
+            axios.get('/salaryInfo/getAllInfo').then(response => this.salaryInfo = response.data);
+        }
+    });

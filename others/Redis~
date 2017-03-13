@@ -1,0 +1,44 @@
+https://www.tutorialspoint.com/redis/redis_environment.htm
+--------------------------------------------------------------
+
+Configure : 
+	1. composer require predis/predis
+		then --- composer update		
+	2. then open config/database.php
+		'redis' => [
+        		'cluster' => false,
+        		'default' => [
+            			'host' => env('REDIS_HOST', 'localhost'),
+            			'password' => env('REDIS_PASSWORD', null),
+            			'port' => env('REDIS_PORT', 6379),
+            			'database' => 0,
+        		],
+    		],
+	3. configure .env file 
+		CACHE_DRIVER=redis
+		SESSION_DRIVER=file
+		QUEUE_DRIVER=sync
+
+	4. check in terminal ... redis-server
+		...  redis-cli 
+		...  ping (reply will be pong)
+
+5.  Cashe data forever
+	if(Cache::has('all_category')){
+            $data['all'] = Cache::get('all_category');
+       }
+       else{
+           $all = ProductCategory::all();
+           Cache::forever('all_category', $all);
+           $data['all'] = Cache::get('all_category');
+       }
+
+	--------------------
+	Cashe for limited min:
+		//for checking //DB::connection()->enableQueryLog();
+	$data['all'] = Cache::remember('all_product', 1, function(){
+            return Product::with('one_category','merchant','discount')->orderBy('id','DESC')->get();
+        });
+		//$dbb = DB::getQueryLog();
+        	//print_r($dbb);
+

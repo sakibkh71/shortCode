@@ -1,0 +1,29 @@
+----
+*** git init
+*** git remote add origin https://github.com/tarekmonjur/HRMS.git (add remote files)
+*** git remote -v
+*** git pull -u origin dev(branch name)
+*** git branch (find how many branches)
+*** git branch sakibkh(create sakibkh branch)
+*** git branch checkout sakibkh (got to sakibkh branch)
+
+ 
+*** git push origin --delete sakibkh
+
+***** Initial Commands *****
+*** git init
+*** git add .
+*** git commit -m "First commit"
+*** git remote add origin remote repository URL
+*** git remote -v
+*** git push origin master
+
+
+
+
+
+
+
+
+
+===============https://www.youtube.com/watch?v=feKDV2d1fCA&list=PLXxDCmNGlzLmLshvOZ4MrJbCLpEibreCl&index=1

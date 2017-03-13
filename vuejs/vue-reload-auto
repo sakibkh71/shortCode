@@ -1,0 +1,6 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/2.2.1/vue-router.js"></script>
+new VueRouter();
+router.go({
+   path: '/salaryInfo/index',
+   force: true
+})

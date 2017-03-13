@@ -1,0 +1,25 @@
+if(we are in mysql 5.5 first need to upgrade it into 5.6 then upgrade it to 5.7)
+
+***** sudo apt-get remove mysql-server
+***** sudo apt-get autoremove
+***** sudo apt-get install mysql-client-5.6 mysql-client-core-5.6
+***** sudo apt-get install mysql-server-5.6
+***** mysql --version (check mysql version .. 5.6 is installed)
+
+Download mysql 5.7
+***** wget http://dev.mysql.com/get/mysql-apt-config_0.8.0-1_all.deb
+***** sudo dpkg -i mysql-apt-config_0.8.0-1_all.deb
+after previous command a modal come 
+select mysql-5.6 then 5.7 then select ok
+***** sudo apt-get update
+***** sudo apt-get install mysql-server
+***** mysql --version (check mysql version .. 5.7 is installed)
+
+after upgrade mysql to 5.7 need to upgrade PHPmyadmin
+
+***** sudo add-apt-repository ppa:nijel/phpmyadmin
+***** sudo apt-get update
+***** sudo apt-get install php5-mysqlnd
+
+***** sudo apt-get remove  phpmyadmin --purge
+***** sudo apt-get install phpmyadmin

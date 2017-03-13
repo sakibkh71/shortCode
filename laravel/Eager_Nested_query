@@ -1,0 +1,3 @@
+	Board::with(['topics' => function($query) use ($perPages, $pageOffset){
+                        $query->skip($pageOffset)->take($perPages);
+              	}])->where("slug", $slug)->first();

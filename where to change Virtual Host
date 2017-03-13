@@ -1,0 +1,31 @@
+/etc/apache2/sites-available then sudo nano laravel.conf
+
+
+
+
+//create sub domain in virtual host
+****** etc/apache2/sites-available(create hrms.dev.conf)
+
+****** paste below code:
+<VirtualHost *:80>
+
+        ServerName hrms.dev
+
+        ServerAdmin webmaster@localhost
+
+        DocumentRoot /var/www/html/HRMS/public
+
+        
+        <Directory "/var/www/html/HRMS/public">
+		    Options FollowSymLinks
+		    AllowOverride All
+		    Order allow,deny
+		    Allow from all
+		</Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+************************* more details ****************************
+https://yomotherboard.com/how-to-remove-index-php-from-laravel-url/
+*******************************************************************
