@@ -1,0 +1,27 @@
+CreateJob:> php artisan make:job SendReminderEmail
+
+InController:>	$job = (new ProcessPodcast($podcast))
+                ->delay(Carbon::now()->addMinutes(10));
+
+//Create JOB migratio file table:>
+	php artisan queue:table
+	php artisan migrate
+
+//testing:> 
+	php artisan queue:work
+
+
+//auto run this comman ... 
+//need to use supervisor ...
+1) apt-get install supervisor
+-----use sudo su...
+2)
+[program:laravel-worker]
+process_name=%(program_name)s_%(process_num)02d
+command=php /var/www/html/HRMS/artisan queue:work --sleep=3 --tries=3
+autostart=true
+autorestart=true
+user=root
+numprocs=8
+redirect_stderr=true
+stdout_logfile=/var/www/html/HRMS/worker.log
