@@ -1,0 +1,67 @@
+associative multi dimentional array :
+-------------------------------------
+sort array depend on a specific key value
+-------------------------------------------
+solution for laravelController:
+----------------------------------------------
+public static function sortByWeight($a, $b)
+    {
+        $a = $a['weight'];
+        $b = $b['weight'];
+
+        if ($a == $b)
+        {
+            return 0;
+        }
+
+        return ($a < $b) ? -1 : 1;
+		//ASC or DSC depend on < or >
+    }
+------------------------------------------------
+public function index(){
+            $array = array(
+                    array('name' => 'Bob',    'weight' => 200),
+                    array('name' => 'Rachel', 'weight' => 145),
+                    array('name' => 'Arthur', 'weight' => 160),
+                    array('name' => 'Paige',  'weight' => 120),
+                    array('name' => 'Chris',  'weight' => 135),
+                );
+
+                usort($array, "self::sortByWeight");
+
+                print_r($array);
+    }
+
+********************************************************
+********** NORMAL SOLUTION *****************************
+********************************************************
+
+function sortByWeight($a, $b)
+{
+    $a = $a['weight'];
+    $b = $b['weight'];
+
+    if ($a == $b)
+    {
+        return 0;
+    }
+
+    return ($a < $b) ? -1 : 1;
+}
+
+function test(){
+
+    $array = array(
+        array('name' => 'Bob',    'weight' => 200),
+        array('name' => 'Rachel', 'weight' => 145),
+        array('name' => 'Arthur', 'weight' => 160),
+        array('name' => 'Paige',  'weight' => 120),
+        array('name' => 'Chris',  'weight' => 135),
+    );
+
+    usort($array, 'sortByWeight');
+
+    print_r($array);
+}
+
+test();

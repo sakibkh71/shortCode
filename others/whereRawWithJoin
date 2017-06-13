@@ -1,0 +1,9 @@
+SELECT employee_leaves.*, leave_types.* FROM employee_leaves JOIN leave_types ON employee_leaves.leave_type_id=leave_types.id
+
+
+===========================
+
+SELECT * FROM `employee_leaves` where (`employee_leave_from` <= '2017-6-7' and `employee_leave_to` >= '2017-6-9') or (`employee_leave_from` <= '2017-6-7' and `employee_leave_to` >= '2017-6-7') or (`employee_leave_from` <= '2017-6-9' and `employee_leave_to` >= '2017-6-9') or (`employee_leave_from` >= '2017-6-7' and `employee_leave_from` <= '2017-6-9') or (`employee_leave_to` >= '2017-6-7' and `employee_leave_to` <= '2017-6-9')
+
+============join=================
+SELECT employee_leaves.*, leave_types.* FROM `employee_leaves` JOIN leave_types ON employee_leaves.leave_type_id=leave_types.id where (`employee_leave_from` <= '2017-6-7' and `employee_leave_to` >= '2017-6-9') or (`employee_leave_from` <= '2017-6-7' and `employee_leave_to` >= '2017-6-7') or (`employee_leave_from` <= '2017-6-9' and `employee_leave_to` >= '2017-6-9') or (`employee_leave_from` >= '2017-6-7' and `employee_leave_from` <= '2017-6-9') or (`employee_leave_to` >= '2017-6-7' and `employee_leave_to` <= '2017-6-9')
