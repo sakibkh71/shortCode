@@ -1,0 +1,7 @@
+https://www.sitepoint.com/managing-cronjobs-with-laravel/
+----------------------------------------------------------
+https://laravel.com/docs/master/scheduling
+
+
+
+* * * * * php /var/www/html/HRMS/artisan schedule:run 1>> /dev/null 2>&1
